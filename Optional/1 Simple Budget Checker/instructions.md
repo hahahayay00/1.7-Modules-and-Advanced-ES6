@@ -1,49 +1,38 @@
-## **Simple Budget Checker Using the Ternary Operator**
+## **Simple Budget Checker**
 
-In this lesson, you’ll learn how to use a ternary operator to check whether you are within your daily budget based on your spending for the day. This exercise will help you get familiar with JavaScript’s ternary operator, which allows you to write concise conditional statements.
+Managing a budget is an essential skill, whether you’re planning your meals, a trip, or even a project. In this lesson, we’ll create a simple program to check if the cost of a meal is within a set budget. You’ll also get to use the **ternary operator**, a concise way to apply conditional logic.
 
 ### **Steps**
 
-### 1. Define the Problem
+### 1. Set Up the Meal Cost and Budget
 
-Imagine you have a budget for the day, say $100. Throughout the day, you spend money on different items like food, transport, and entertainment. You need a simple way to check whether you're still within the budget.
+Let’s start by defining the cost of the meal and the budget. We’ll set the budget at $15 and take the meal cost as input from the user using the `prompt()` function.
 
 ```js
-// Define your daily budget
-const dailyBudget = 100;
+const budget = 15;
+const mealCost = parseFloat(prompt("Enter the cost of your meal:"));
 ```
 
-### 2. Track Your Expenses
+### 2. Apply the Ternary Operator
 
-Let’s assume you’ve spent a certain amount on different items. We will store the total expenses in a variable.
+Now that we have the meal cost, we can use a ternary operator to check if the meal cost is within budget. The ternary operator allows us to do a quick check in a single line of code.
 
 ```js
-// Example expenses
-const food = 30;
-const transport = 20;
-const entertainment = 40;
-
-// Total expenses
-const totalSpent = food + transport + entertainment;
+const message = mealCost <= budget 
+    ? "You are within your budget!" 
+    : "This meal exceeds your budget.";
 ```
 
-### 3. Use the Ternary Operator to Check the Budget
+- The ternary operator works like this:
+  - If the condition `mealCost <= budget` is true, it returns `"You are within your budget!"`
+  - Otherwise, it returns `"This meal exceeds your budget."`
 
-Now that you have your total expenses, use the ternary operator to check if you're within your daily budget or over it.
+### 3. Display the Result
 
-```js
-// Ternary operator to check if you're within the budget
-const budgetStatus = totalSpent <= dailyBudget
-  ? "You're within your budget."
-  : "You've exceeded your budget!";
-```
-
-### 4. Display the Result
-
-Finally, let's display the result to check if you've managed your expenses well.
+Finally, let’s use `alert()` to show the message to the user.
 
 ```js
-console.log(budgetStatus);
+alert(message);
 ```
 
 ### **Full Code**
@@ -52,38 +41,22 @@ console.log(budgetStatus);
 <summary>Full Code</summary>
 
 ```js
-// Define the daily budget
-const dailyBudget = 100;
-
-// Expenses
-const food = 30;
-const transport = 20;
-const entertainment = 40;
-
-// Total expenses
-const totalSpent = food + transport + entertainment;
-
-// Check budget using ternary operator
-const budgetStatus = totalSpent <= dailyBudget
-  ? "You're within your budget."
-  : "You've exceeded your budget!";
-
-// Display the result
-console.log(budgetStatus);
+const budget = 15;
+const mealCost = parseFloat(prompt("Enter the cost of your meal:"));
+const message = mealCost <= budget 
+    ? "You are within your budget!" 
+    : "This meal exceeds your budget.";
+alert(message);
 ```
 
 </details>
 
 ### **Explanation**
 
-- **Ternary Operator:** The ternary operator is a shorthand for writing `if-else` statements in a more concise way. In this case, it checks whether the total spent is less than or equal to the daily budget. If true, it returns a message saying you are within your budget; otherwise, it says you’ve exceeded it.
-  
-- **Tracking Expenses:** By storing each expense in a variable, you can easily modify the values and check different budget scenarios. This makes your code flexible and reusable.
+- **Ternary Operator:** This operator provides a shorter and more concise way of writing an `if-else` statement. It’s perfect for situations where you only need to check one condition and return one of two possible outcomes.
+- **Budget Check:** In this example, we’re checking if the cost of the meal is less than or equal to the budget. Based on the result, we display the appropriate message.
 
 ### **Important Notes**
 
-- **Ternary Operator Usage:** The ternary operator is ideal for simple conditions like this. For more complex logic, it's better to use regular `if-else` statements.
-  
-- **Test with Different Expenses:** Try changing the values of the expenses (e.g., food, transport, etc.) and see how the budget status changes. This will give you a better understanding of how the ternary operator works.
-
-This simple budget checker is a great way to practice using the ternary operator while solving a real-world problem. You can expand this concept by adding more features like tracking weekly or monthly expenses!
+- **Input Handling:** We use `parseFloat()` to convert the input from the `prompt()` function into a number. Always make sure to convert user inputs if you're dealing with numbers, as `prompt()` returns a string by default.
+- **Ternary Operator Best Practices:** The ternary operator is great for simple conditions. However, for more complex logic with multiple conditions, you might want to use regular `if-else` statements for better readability.
