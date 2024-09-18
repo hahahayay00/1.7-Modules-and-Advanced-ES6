@@ -1,6 +1,6 @@
 ### **Challenge - Advanced Profile Updater**
 
-In this challenge, you'll create an advanced profile updater that allows a user to update their information dynamically. You’ll practice combining a few key concepts, including object destructuring, rest parameters, and array methods. 
+In this challenge, you'll create an advanced profile updater that allows a user to update their information dynamically. You’ll practice combining a few key concepts, including object destructuring, rest parameters, and array methods.
 
 ### **Scenario**
 
@@ -13,23 +13,27 @@ You’ll be writing a program that:
 ### **Starter Code**
 
 ```js
-function updateProfile(data) {
+const userProfile = {
+    name: "John",
+    age: 25,
+    hobbies: ["Reading", "Gaming"]
+};
+
+function updateProfile({name, age, hobbies}, ...newHobbies) {
     // Define your logic here
 }
 ```
 
 ### **Example Inputs and Outputs**
 
-Provide example inputs and outputs to give students a clear idea of what to expect from their program.
-
 ```js
 // == Example 1 ==
-// console.log(updateProfile("John", 25, "Swimming", "Hiking"));
-// Expected output: "John's profile updated! Hobbies: Swimming, Hiking"
+// Input: updateProfile(userProfile, "Swimming", "Hiking");
+// Output: "John's profile updated! Hobbies: Reading, Gaming, Swimming, Hiking"
 
 // == Example 2 ==
-// console.log(updateProfile("Alice", undefined, "Photography", "Traveling"));
-// Expected output: "Alice's profile updated! Hobbies: Photography, Traveling"
+// Input: updateProfile(userProfile, "Photography", "Traveling");
+// Output: "John's profile updated! Hobbies: Reading, Gaming, Photography, Traveling"
 ```
 
 ### 🧠 **Hints**
@@ -38,7 +42,7 @@ For the best learning experience, try solving the challenge using just the requi
 
 <details>
 <summary>Hint 1</summary>
-Use rest parameters to gather all hobbies as an array.
+Use rest parameters to gather all new hobbies as an array.
 </details>
 
 <details>
@@ -57,19 +61,19 @@ Remember to destructure the existing profile properties for easier access.
 <summary>Pseudocode</summary>
 
 ```
-1. Create a user profile object with default properties (name, age, hobbies).
+1. Create a user profile object with properties (name, age, hobbies).
 
-2. Write a function named updateProfile that accepts three parameters:
-    a. Destructure the first two parameters (name and age).
-    b. Use rest parameters to gather any additional hobbies into an array.
+2. Write a function named updateProfile that:
+    a. Destructures the user profile object (name, age, hobbies).
+    b. Uses rest parameters to gather additional hobbies.
 
 3. Inside the function:
-    a. Add new hobbies to the existing hobbies using array methods.
-    b. Update the user's name and age if provided.
+    a. Add new hobbies to the existing hobbies using array methods like `.concat()` or spread.
+    b. Return a message that includes the updated hobbies.
 
-4. Return a message stating that the profile has been updated and display the updated hobbies.
+4. Return a message stating the profile has been updated and show the hobbies.
 ```
 
 </details>
 
-This exercise will help solidify your understanding of **object destructuring**, **rest parameters**, and **array methods**, giving you a hands-on experience in updating dynamic data.
+This exercise will help solidify your understanding of **object destructuring**, **rest parameters**, and **array methods**, giving you hands-on experience with updating dynamic data.
